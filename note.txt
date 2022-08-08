@@ -1,0 +1,10 @@
+wsdl2h -c -O4 -P -x -t  ~/onvif/gsoap-2.8/gsoap/typemap.dat -o onvif.h \
+  http://www.onvif.org/onvif/ver10/device/wsdl/devicemgmt.wsdl \
+  http://www.onvif.org/onvif/ver10/network/wsdl/remotediscovery.wsdl 
+
+
+soapcpp2 -x -c -a -j -I ~/onvif/gsoap-2.8/gsoap/import  ~/onvif/gsoap-2.8/gsoap/import/wsdd.h
+
+gcc  -I . -I ~/onvif/gsoap-2.8/gsoap/import/   -I ~/onvif/gsoap-2.8/gsoap/plugin/ \
+-I ~/onvif/gsoap-2.8/gsoap ~/onvif/gsoap-2.8/gsoap/plugin/wsddapi.c \
+ *.c  -o main

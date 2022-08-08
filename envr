@@ -1,0 +1,2 @@
+PATH=$PATH:~/onvif/gsoap-2.8/gsoap/wsdl:~/onvif/gsoap-2.8/gsoap/src/
+
